@@ -14,11 +14,11 @@ def operators_dag():
     def second_task():
         print("This is the second task")
     
-    @task.bash
+    @task.bash                   # One way of writing a bash task using the @task decorator
     def bash_task_modern():
         return "echo https://airflow.apache.org/"
 
-    bash_task_oldschool = BashOperator(
+    bash_task_oldschool = BashOperator(  # Another way of writing a bash task using the traditional way of defining tasks in Airflow
     task_id="bash_task_oldschool",
     bash_command="echo https://airflow.apache.org/",
     )
